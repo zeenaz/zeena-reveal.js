@@ -6,19 +6,16 @@
     <title>AI辅助Unity 2D游戏设计与开发路线图</title>
     <style>
         :root {
-            --primary-color: #86bbff;
-        --accent-color: #a1cfff;
-        --text-color: #c3e5ff;
-        --background-color: #031221;
-        --card-bg: #2361e352;
-        --tip-bg: #00103d;
-        --tip-border: #098AE1;
-        --border-color: #6cc9ff;
-        --light-text: #95ACFB;
-        --session-title-color: #ffffff;
-        --session-background-color: #4365ff5c;
-        --shine-color: #007f7f;
-        --shine-background-color: #1f88ff;
+            /* Updated color variables for a tech vibe matching demo.html */
+            --primary-color: #00e676;      /* demo heading green */
+            --accent-color: #66ff99;        /* demo h3 accent */
+            --text-color: #e0e0e0;          /* demo body text color */
+            --background-color: #121212;    /* demo dark background */
+            --card-bg: #1e1e1e;             /* dark card background */
+            --tip-bg: #2c2f33;              /* cool tech tip background */
+            --tip-border: #45ffa5;          /* matching primary highlight */
+            --border-color: #333;           /* section border */
+            --light-text: #aaa;             /* fallback light text */
         }
 
         body {
@@ -48,7 +45,7 @@
         h1 {
             color: var(--primary-color);
             margin-top: 0;
-            font-size: 3.2em;
+            font-size: 2.2em;
         }
 
         h2 {
@@ -90,14 +87,11 @@
         }
 
         .session-header {
-            background-color: var(--session-background-color);
-            color: var(--session-title-color);
+            background-color: var(--primary-color);
+            color: rgb(0, 0, 0);
             padding: 15px 20px;
-            font-size: 1.6em;
+            font-size: 1.2em;
             font-weight: bold;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
         }
 
         .session-content {
@@ -233,7 +227,7 @@
 
         @keyframes shine {
           0% { background-color: transparent; }
-          50% { background-color: var(--shine-background-color); }
+          50% { background-color: rgb(61, 255, 142); }
           100% { background-color: transparent; }
         }
         .session-header.shine {
@@ -241,7 +235,7 @@
         }
         /* Optionally, make the section header text lighter during shine */
         .session-header.shine h3 {
-           color: var(--shine-color);
+           color: #09ff00;
         }
     </style>
 </head>
@@ -778,15 +772,10 @@
                 <div class="phase-title">完善阶段（第7-12课）:</div>
                 <p>测试、优化、打包和发布。</p>
             </div>
-
-            <div class="tip">
-                <div class="tip-title">课程说明</div>
-                <p>每课都配有实用工具和模板，就算你很懒也能快速上手。</p>
-                <p>整套流程只需2-3个月，让你用AI工具事半功倍地完成游戏开发。</p>
-            </div>
-
-            <p>这份文档专为忙碌的开发者设计，项目依然在开发中。</p>
-            <p>与FSG一起，在AI工具的加持下，让你的游戏开发效率翻倍！</p>
+            
+            <p>每课都配有实用工具和模板，就算你很懒也能快速上手。整套流程只需2-3个月，让你用AI工具事半功倍地完成游戏开发。</p>
+            
+            <p>这份文档专为忙碌的开发者设计，语言简洁明了，步骤清晰可行，配合AI工具让你的游戏开发效率翻倍！</p>
         </div>
 
         <footer>
