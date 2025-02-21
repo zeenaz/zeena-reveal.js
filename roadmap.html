@@ -157,6 +157,27 @@
             font-weight: bold;
             color: var(--primary-color);
         }
+        .meta-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: var(--tip-bg);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .meta-item {
+      flex: 1;
+      text-align: center;
+      padding: 5px;
+      gap: 5px;
+      border-radius: 4px;
+      background-color: var(--tip-bg);
+      border: 1px solid var(--tip-border);
+      border-radius: 10px;
+    }
 
         footer {
             text-align: center;
@@ -167,6 +188,13 @@
         }
         
         @media (max-width: 768px) {
+            .meta-info {
+              flex-direction: column;
+              gap: 10px;
+          }
+          .meta-item {
+                width: 100%;
+            }
             .container {
                 padding: 15px;
             }
@@ -239,10 +267,12 @@
         .session-header.shine {
            animation: shine 1s ease-out;
         }
-        /* Optionally, make the section header text lighter during shine */
         .session-header.shine h3 {
            color: var(--shine-color);
         }
+        .meta-info a {
+      color: var(--session-title-color);
+    }
     </style>
 </head>
 <body>
@@ -256,16 +286,39 @@
         <header>
             <h1>AI辅助Unity2D游戏 Roadmap</h1>
             <p>使用AI工具从0到1完成游戏开发的简明指南</p>
+            <p>🌟 2025 第1期 🌟</p>
         </header>
 
+        <div class="meta-info">
+            <div class="meta-item">📅 最后更新: 2025-02-21</div>
+            <div class="meta-item">⭐ 重要度: ⭐⭐⭐⭐⭐</div>
+            <div class="meta-item">⏱️ 阅读时间: 5+ mins</div>
+            <div class="meta-item">🤓 课程导师：Zeena</div>
+        </div>
+        
         <div class="target-audience">
-            <h3>目标受众</h3>
-            <p>懂Unity但不懂大语言模型的游戏开发者</p>
+            <h3>🤔这个课程适合谁？</h3>
+            <p>懂Unity但不懂怎么用AI工具的麻瓜🤯</p>
+            <p>想用AI工具从0️⃣到1️⃣完成游戏的人✋</p>
+            <p>✅美术 ✅策划</p>
         </div>
 
         <div class="overall-objective">
-            <h3>总体目标</h3>
-            <p>用AI工具（LLM、GitHub Copilot、Cursor等）从0到1完成游戏，包括概念设计、编码、测试到最终发布，全程有AI助力。</p>
+            <h3>🎯这个课程的目标是什么？</h3>
+            <p>用AI工具🤖（LLM、GitHub Copilot、Cursor等）从0️⃣到1️⃣完成游戏开发全过程！</p>
+            <p>包括💭概念设计、💻编码、🔍测试到🚀发布，全程有AI助力。</p>
+        </div>
+
+        <div class="meta-info">
+        📚导航
+            <div class="meta-item"><a href="#lesson0">第0课</a></div>
+            <div class="meta-item"><a href="#lesson1">第1课</a></div>
+            <div class="meta-item"><a href="#lesson2">第2课</a></div>
+            <div class="meta-item"><a href="#lesson3">第3课</a></div>
+            <div class="meta-item"><a href="#lesson4">第4课</a></div>
+            <div class="meta-item"><a href="#lesson5">第5课</a></div>
+            <div class="meta-item"><a href="#lesson6">第6课</a></div>
+            <div class="meta-item"><a href="#end">到底部⬇️</a></div>
         </div>
 
         <div id="lesson0" class="session-card">
@@ -295,7 +348,7 @@
                                 <li>AI也会犯错（幻觉问题）及应对方法</li>
                             </ul>
                         </li>
-                        <li><strong>实操环节:</strong>
+                        <li><strong>演示操练:</strong>
                             <ul>
                                 <li>用LLM快速生成游戏设计文档</li>
                                 <li>GitHub Copilot帮你写C#代码</li>
@@ -787,6 +840,18 @@
 
             <p>这份文档专为忙碌的开发者设计，项目依然在开发中。</p>
             <p>与FSG一起，在AI工具的加持下，让你的游戏开发效率翻倍！</p>
+        </div>
+
+        <div class="meta-info">
+        📚导航
+            <div class="meta-item"><a href="#top">到顶部⬆️</a></div>
+            <div class="meta-item"><a href="#lesson0">第0课</a></div>
+            <div class="meta-item"><a href="#lesson1">第1课</a></div>
+            <div class="meta-item"><a href="#lesson2">第2课</a></div>
+            <div class="meta-item"><a href="#lesson3">第3课</a></div>
+            <div class="meta-item"><a href="#lesson4">第4课</a></div>
+            <div class="meta-item"><a href="#lesson5">第5课</a></div>
+            <div class="meta-item"><a href="#lesson6">第6课</a></div>
         </div>
 
         <footer>
