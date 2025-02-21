@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎨 Diffusion &amp; ComfyUI 系列课程大纲 🌟</title>
+  <style>
+    :root {
+      --primary-color: #86bbff; 
+      --accent-color: #a1cfff;
+      --text-color: #c3e5ff;
+      --background-color: #031221;
+      --card-bg: #2361e352;
+      --tip-bg: #00103d;
+      --tip-border: #098AE1;
+      --heading-color: #1e293b;
+      --border-color: #6cc9ff;
+      --light-text: #95ACFB;
+      --session-title-color: #ffffff; 
+      --session-background-color: #4365ff5c;
+      --nav-color: #ffffff;
+    }
+      
+    body {
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0 auto;
+      padding: 0px;
+      line-height: 1.6;
+      max-width: 1200px;
+    }
+  
+    header{
+      background-color: var(--background-color);
+      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0 auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      max-width: 1200px;
+    }
+
+    header h1{
+      font-size: 2.5em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    header p{
+      font-size: 1.5em;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-color);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    .meta-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 20px;
+      background-color: var(--tip-bg);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .meta-item {
+      flex: 1;
+      text-align: center;
+      padding: 5px;
+      gap: 5px;
+      border-radius: 4px;
+      background-color: var(--tip-bg);
+      border: 1px solid var(--tip-border);
+      border-radius: 10px;
+    }
+
+    .session-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    .session-header {
+      background-color: var(--session-background-color);
+      color: var(--session-title-color);
+      font-size: 1.8em;
+      padding: 10px 15px;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
+    .session-content {
+      display: flex;
+      color: var(--nav-color);
+      flex-direction: column;
+      gap: 5px;
+    }
+    .session-nav {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+    .session-content ul {
+      list-style: disc inside;
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+    .session-content li {
+      margin: 5px 0;
+    }
+    @media (max-width: 600px) {
+    .meta-info {
+              flex-direction: column;
+              gap: 10px;
+          }
+          .meta-item {
+                width: 100%;
+            }
+            
+      body {
+        padding: 10px;
+      }
+      .session-card {
+        padding: 15px;
+      }
+    }
+    /* Begin added nav-outline styles */
+    .nav-outline {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background-color: var(--card-bg);
+      padding: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+      transition: opacity 0.1s ease;
+      opacity: 0;
+    }
+    .nav-outline.visible {
+      opacity: 1;
+    }
+    .nav-outline h4 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1em;
+      color: var(--primary-color);
+    }
+    .nav-outline ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-outline li {
+      margin: 0.5rem 0;
+    }
+    .nav-outline a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 0.9em;
+    }
+    .nav-outline a:hover {
+      text-decoration: underline;
+    }
+    .nav-outline a.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    
+    .meta-info a {
+      color: var(--session-title-color);
+    }
+   
+  </style>
+</head>
+<body>
+  <div id="top"></div>
+  <div id="progressBar" style="position: fixed; top: 0; left: 0; height: 4px; background: var(--accent-color); width: 0%; z-index: 9999;"></div>
+  <header>
+    <h1>🎨 Diffusion & ComfyUI 系列课程大纲 🌟</h1>
+    <p>🌟 2025 第1期 🌟</p>
+  </header>
+  <div class="meta-info">
+    <div class="meta-item">📅 最后更新: 2025-02-21</div>
+    <div class="meta-item">⭐ 重要度: ⭐⭐⭐⭐⭐</div>
+    <div class="meta-item">⏱️ 阅读时间: 5分钟速览，随需深入</div>
+    <div class="meta-item">🤓 课程导师：Zeena</div>
+</div>
+
+<div class="meta-info">
+  📚导航
+    <div class="meta-item"><a href="#session1">第1节</a></div>
+    <div class="meta-item"><a href="#session2">第2节</a></div>
+    <div class="meta-item"><a href="#session3">第3节</a></div>
+    <div class="meta-item"><a href="#session4">第4节</a></div>
+    <div class="meta-item"><a href="#session5">第5节</a></div>
+    <div class="meta-item"><a href="#session6">第6节</a></div>  
+    <div class="meta-item"><a href="#end">到底部⬇️</a></div>
+</div>
+
+  <!-- Session Card 1 -->
+  <div id="session1" class="session-card">
+    <div class="session-header">🎨 1 Diffusion 模型：如何创造艺术资产？</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>🎨 Diffusion 模型知识点</h3>
+          <li>理解Diffusion模型的运作</li>
+          <li>理解 Midjourney &amp; Diffusion &amp; Flux &amp; Lora 模型的区别</li>
+          <li>可以氪金的Diffusion模型概览</li>
+          <li>Open Art, DALL·E， Leonardo, Midjourney, Niji journey, Scenario 界面与核心功能演示</li>
+          <h3>💪 实战挑战</h3>
+          <li>氪金的Diffusion模型 - 游戏资产生成挑战 【初级】</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: AICG全球社区介绍+玩法手册</li>
+          <li>🔓Bonus: AICG网站收藏夹 + 官方说明书收藏夹</li>
+          <li>🔓Bonus: 💡流行AI工具介绍 + 网页收藏夹 （动态调整）</li>
+          <li>🔓Bonus: Diffusion 顶级论文合集</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session Card 2 -->
+  <div id="session2" class="session-card">
+    <div class="session-header">💡 2 提示工程师：基础到专业</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>💡 提示词工程 Diffusion 模型知识点</h3>
+          <li>提示词（Prompt）的运作原理</li>
+          <li>适用于Diffusion模型的提示词（Diffusion Prompt）基础知识（语法）</li>
+          <li>Diffusion Prompt 工程 &amp; 架构 &amp; 流程（Work Flow）</li>
+          <li>Diffusion Prompt 基础技巧</li>
+          <h3>💪 实战挑战</h3>
+          <li>氪金的Diffusion模型 - 游戏资产生成挑战【中级】</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: 提示工程 Workflow 流程操作指南</li>
+          <li>🔓Bonus: Prompt 技巧百科</li>
+          <li>🔓Bonus: Prompt Theft 偷提示词的小技巧和全球窝点（动态调整）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session Card 3 -->
+  <div id="session3" class="session-card">
+    <div class="session-header">🚀 3 专业提示词 + 艺术速效救心丸</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>🚀 提示词工程进阶 </h3>
+          <li>Diffusion Prompt 进阶知识（语法）</li>
+          <li>Order | Subject | Object | Action | Location | Type | Style | Colors | Artist | Resolution | 
+            Negative Prompts 等术语解析</li>
+          <li>Diffusion Prompt 进阶技巧</li>
+          <h3>🎨 艺术速效救心丸</h3>
+          <li>美术必备知识（语法）</li>
+          <li>美术资产规格和标准</li>
+          <li>概念美术 Prompt 的要点</li>
+          <li>技术美术必备知识（语法）</li>
+          <h3>💪 实战挑战</h3>
+          <li>氪金的Diffusion模型 - 游戏资产生成挑战【高级】</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: 跨学科学习技巧</li>
+          <li>🔓Bonus: 审美提升全球站点使用指南</li>
+          <li>🔓Bonus: 审美提升操作手册</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session Card 4 -->
+  <div id="session4" class="session-card">
+    <div class="session-header">🖥️ 4 软件环境与计算机科学基础</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>🖥️ 打开程序员的神秘后门？</h3>
+          <li>氪金 vs 不氪金的利弊</li>
+          <li>软件与硬件环境搭建</li>
+          <li>GitHub 入门必备知识</li>
+          <li>GitHub Desktop 装载</li>
+          <li>GitHub Desktop 界面与核心功能</li>
+          <h3>😎 开源软件 & 模型下载</h3>
+          <li>开源软件 Stable Diffusion Web UI 装载</li>
+          <li>Hugging Face 平台 + 模型下载</li>
+          <li>Stable Diffusion Web UI 界面与核心功能</li>
+          <li>Stable Diffusion Web UI 生成资产的必要步骤演示</li>
+          <h3>💪 实战挑战</h3>
+          <li>不氪金的 Stable Diffusion web UI - 游戏资产生成挑战 【初级】</li>
+          <li>不氪金的 Stable Diffusion web UI - 游戏资产生成挑战 【中级】（进阶提示词）</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: 电脑软件必备知识【小抄】</li>
+          <li>🔓Bonus: 电脑硬件【氪金指南】</li>
+          <li>🔓Bonus: GitHub 懒人使用说明</li>
+          <li>🔓Bonus: GitHub Desktop 懒人使用说明</li>
+          <li>🔓Bonus: 程序员都在~~白嫖~~的开源神器⭐💸（这么牛居然不要钱）</li>
+          <li>🔓Bonus: Stable Diffusion Web UI 懒人使用说明</li>
+          <li>🔓Bonus: Stable Diffusion Web UI 提示词手册</li>
+          <li>🔓Bonus: Stable Diffusion Web UI 🫵生成资产的必要步骤</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session Card 5 -->
+  <div id="session5" class="session-card">
+    <div class="session-header">🔍 5 Diffusion 模型 & ComfyUI 基础</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>🔍 模型 &amp; ComfyUI 基础</h3>
+          <li>理解Diffusion模型 Stable Diffusion Checkpoint, SDXL, Flux, LoRa</li>
+          <li>下载配置 (Stable Diffusion Checkpoint, Flux, LoRa) 模型</li>
+          <h3>🌸 ComfyUI 基础</h3>
+          <li>开源软件 ComfyUI 装载</li>
+          <li>ComfyUI 基础界面与核心功能</li>
+          <li>ComfyUI 的工作流文件「Workflow」</li>
+          <li>ComfyUI 的键盘和鼠标快捷键（上）</li>
+          <li>ComfyUI 生成资产的必要步骤演示</li>
+          <li>ComfyUI 的节点「Nodes」说明和练习</li>
+          <li>ComfyUI 的配置 属性「Properties」说明和练习</li>
+          <li>ComfyUI 的线条含义说明和练习</li>
+          <li>ComfyUI 的模型「Models」说明和练习</li>
+          <li>ComfyUI 工作流文件「Workflow」- 导入导出说明和练习</li>
+          <li>ComfyUI + Stable Diffusion Text-to-Image （文生图）Prompt 提示词</li>
+          <li>ComfyUI + Stable Diffusion Negative Prompts</li>
+          <h3>💪 实战挑战</h3>
+          <li>不氪金的 ComfyUI - 游戏资产生成挑战 【初级】</li>
+          <li>不氪金的 ComfyUI - 操作流工程「Workflow」挑战 【初级】</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: Diffusion 模型全球站点收藏夹</li>
+          <li>🔓Bonus: Diffusion 模型下载安装指南</li>
+          <li>🔓Bonus: ComfyUI 懒人使用说明</li>
+          <li>🔓Bonus: ComfyUI 快捷键✊快速记忆🧠组合技能</li>
+          <li>🔓Bonus: ComfyUI 🫵生成资产的必要步骤</li>
+          <li>🔓Bonus: ComfyUI 界面【小抄】</li>
+          <li>🔓Bonus: ComfyUI 操作流工程「Workflow」全球站点收藏夹</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Session Card 6 -->
+  <div id="session6" class="session-card">
+    <div class="session-header">⚙️ 6 Comfy UI 进阶技巧</div>
+    <div class="session-content">
+      <div class="core-content">
+        <ul>
+          <h3>⚙️ ComfyUI 进阶技巧</h3>
+          <li>ComfyUI 连连看→ TA</li>
+          <li>ComfyUI 功能概览 &amp; 演示</li>
+          <li>ComfyUI + Stable Diffusion 局部重绘 Inpaint</li>
+          <li>ComfyUI + Stable Diffusion 拓展图像 Outpainting</li>
+          <li>ComfyUI + Stable Diffusion 高清放大 Upscaling</li>
+          <li>ComfyUI + Stable Diffusion 图生图 Image-to-Image</li>
+          <li>ComfyUI + Stable Diffusion 文本嵌入 Textual inversion</li>
+          <li>ComfyUI + Stable Diffusion 姿势控制 Control Net</li>
+          <li>ComfyUI + Stable Diffusion 深度图像 Depth-to-Image</li>
+          <h3>🤯 ComfyUI + 更多模型</h3>
+          <li>ComfyUI + LoRA 模型</li>
+          <li>ComfyUI + Flux 模型</li>
+          <li>ComfyUI + SDXL 模型</li>
+          <h3>🛠️ ComfyUI + 工作流文件「Workflow」</h3>
+          <li>ComfyUI 多模型配置 & 操作</li>
+          <li>ComfyUI 工作流文件「Workflow」- 人物生成</li>
+          <li>ComfyUI Consistent Character 稳定人物</li>
+          <li>ComfyUI FaceSwap 修改人物表情</li>
+          <li>ComfyUI 工作流文件「Workflow」- 环境生成</li>
+          <li>ComfyUI 工作流文件「Workflow」- 资产生成</li>
+          <li>ComfyUI 工作流文件「Workflow」- UI生成</li>
+          <h3>💪 实战挑战</h3>
+          <li>不氪金的 Stable Diffusion web UI - 游戏资产生成挑战 【中级】</li>
+          <li>不氪金的 ComfyUI - 操作流工程「Workflow」挑战 【中级】</li>
+          <h3>🎁 白嫖福利</h3>
+          <li>🔓Bonus: Diffusion 模型全球站点收藏夹</li>
+          <li>🔓Bonus: Diffusion 模型下载安装指南</li>
+          <li>🔓Bonus: ComfyUI 懒人使用说明</li>
+          <li>🔓Bonus: ComfyUI 快捷键✊快速记忆🧠组合技能</li>
+          <li>🔓Bonus: ComfyUI 🫵生成资产的必要步骤</li>
+          <li>🔓Bonus: ComfyUI 界面【小抄】</li>
+          <li>🔓Bonus: ComfyUI 操作流工程「Workflow」全球站点收藏夹</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-info">
+  📚导航
+    <div class="meta-item"><a href="#top">到顶部⬆️</a></div>
+    <div class="meta-item"><a href="#session1">第1节</a></div>
+    <div class="meta-item"><a href="#session2">第2节</a></div>
+    <div class="meta-item"><a href="#session3">第3节</a></div>
+    <div class="meta-item"><a href="#session4">第4节</a></div>
+    <div class="meta-item"><a href="#session5">第5节</a></div>
+    <div class="meta-item"><a href="#session6">第6节</a></div>
+</div>
+  
+  <!-- Append nav-outline element at the end of body -->
+  <div class="nav-outline" id="navOutline">
+    <h4>导航</h4>
+    <ul>
+      <li><a href="#top">到顶部⬆️</a></li>
+      <li><a href="#session1">第1节</a></li>
+      <li><a href="#session2">第2节</a></li>
+      <li><a href="#session3">第3节</a></li>
+      <li><a href="#session4">第4节</a></li>
+      <li><a href="#session5">第5节</a></li>
+      <li><a href="#session6">第6节</a></li>
+      <li><a href="#end">到底部⬇️</a></li>
+    </ul>
+  </div>
+  <footer>
+    <p>© 2025 Diffusion & ComfyUI 系列课程大纲 | FSG留学 x Design x TA x AI </p>
+</footer>
+  <div id="end"></div>
+
+  
+  <!-- Append JavaScript for nav auto hide, scroll highlighting, progress bar and smooth scroll -->
+  <script>
+    (function(){
+      const nav = document.getElementById('navOutline');
+      let timer;
+      function showNav() {
+        nav.classList.add('visible');
+        if(timer) clearTimeout(timer);
+      }
+      document.addEventListener('mousemove', function(e) {
+        if(e.clientX > window.innerWidth - 50) {
+          showNav();
+        }
+      });
+      nav.addEventListener('mouseenter', function(){
+        if(timer) clearTimeout(timer);
+      });
+      nav.addEventListener('mouseleave', function(){
+        timer = setTimeout(function(){
+          nav.classList.remove('visible');
+        }, 50);
+      });
+    })();
+  </script>
+  <script>
+    (function(){
+      const navLinks = document.querySelectorAll('.nav-outline a');
+      const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+      let currentActive = null;
+      window.addEventListener('scroll', () => {
+        const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+        sections.forEach((sec, idx) => {
+          if(sec && sec.offsetTop <= scrollPos + 500 && (sec.offsetTop + sec.offsetHeight) > scrollPos + 500) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[idx].classList.add('active');
+          }
+        });
+      });
+    })();
+  </script>
+  <script>
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + "%";
+    });
+  </script>
+  <script>
+    (function(){
+      const navLinks = document.querySelectorAll('.nav-outline a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e){
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          const target = document.querySelector(targetId);
+          if(target) {
+            const offset = target.getBoundingClientRect().top + window.pageYOffset - 100;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

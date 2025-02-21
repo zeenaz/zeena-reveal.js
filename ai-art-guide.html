@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>程序员的AI艺术速成指南</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #a5b4fc;
+            --accent-color: #f97316;
+            --text-color: #334155;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --code-bg: #f1f5f9;
+            --border-color: #e2e8f0;
+            --heading-color: #1e293b;
+            --section-bg: #f1f5f9;
+            --challenge-bg: #fff7ed;
+            --challenge-border: #ffedd5;
+            --bonus-bg: #f0f9ff;
+            --bonus-border: #bae6fd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .meta-info {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            padding: 5px 10px;
+            background-color: var(--section-bg);
+            border-radius: 20px;
+        }
+
+        .intro {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-color);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .toc {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .toc h2 {
+            color: var(--heading-color);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-light);
+        }
+
+        .toc ul {
+            list-style-type: none;
+        }
+
+        .toc li {
+            margin-bottom: 12px;
+        }
+
+        .toc a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .toc a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        section {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-content {
+            padding: 20px;
+        }
+
+        h3 {
+            color: var(--heading-color);
+            margin-top: 25px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        h3:first-child {
+            margin-top: 0;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .keyword {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .challenge-box {
+            background-color: var(--challenge-bg);
+            border: 1px solid var(--challenge-border);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .challenge-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .bonus-box {
+            background-color: var(--bonus-bg);
+            border: 1px solid var(--bonus-border);
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .bonus-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .conclusion {
+            background-color: var(--section-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .conclusion h2 {
+            color: var(--heading-color);
+            margin-bottom: 15px;
+        }
+
+        .advice-list {
+            margin-top: 20px;
+        }
+
+        .advice-list ol {
+            padding-left: 20px;
+        }
+
+        .final-cta {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .meta-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .meta-item {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+
+        .nav-outline {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            background-color: var(--card-bg);
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: opacity 0.1s ease;
+            opacity: 0; /* hidden by default */
+        }
+        .nav-outline.visible {
+            opacity: 1;
+        }
+        .nav-outline h4 {
+            margin: 0 0 0.5rem;
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+        .nav-outline ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .nav-outline li {
+            margin: 0.5rem 0;
+        }
+        .nav-outline a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 0.9em;
+        }
+        .nav-outline a:hover {
+            text-decoration: underline;
+        }
+        .nav-outline a.active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 程序员的AI艺术速成指南</h1>
+            <p>画画手残，照样生成专业游戏资产</p>
+        </header>
+        <div id="top"></div>
+        <div class="meta-info">
+            <div class="meta-item">📅 最后更新: 2025-02-21</div>
+            <div class="meta-item">⭐ 重要度: ⭐⭐⭐⭐⭐</div>
+            <div class="meta-item">⏱️ 阅读时间: 5分钟速览，随需深入</div>
+        </div>
+
+        <div class="intro">
+            <p><strong>写在前面</strong>: 没时间学美术？没钱请画师？没关系！这份指南能让你从"画直线都歪七扭八"变成"生成专业级游戏素材"，让美术同事瞠目结舌！</p>
+        </div>
+
+        <div class="toc">
+            <h2>目录</h2>
+            <ul>
+                <li><a href="#section1">🧙‍♂️ Diffusion模型：不会画画也能当艺术总监</a></li>
+                <li><a href="#section2">🔤 提示词工程：艺术家的语法</a></li>
+                <li><a href="#section3">🎯 专业级提示词：装B必备</a></li>
+                <li><a href="#section4">🛠️ 环境搭建：程序员的基本素养</a></li>
+                <li><a href="#section5">🧩 多种Diffusion模型 + ComfyUI入门</a></li>
+                <li><a href="#section6">🚀 ComfyUI高级玩法</a></li>
+                <li><a href="#section7">🫵 结语：从"菜鸟"到"大佬"的蜕变</a></li>
+                <li><a href="#end">到底部⬇️</a></li>
+            </ul>
+        </div>
+
+        <section id="section1">
+            <div class="section-header">
+                <span>🧙‍♂️</span> 1. Diffusion模型：不会画画也能当艺术总监
+            </div>
+            <div class="section-content">
+                <h3>👉 为什么Diffusion模型能创造游戏素材？</h3>
+                <ul>
+                    <li>简单说：它能把文字变图像，程序员终于不用求画师了！</li>
+                    <li>复杂说：通过去噪过程从随机噪声中提取图像特征（数学+深度学习黑魔法，反正你也不想了解细节）</li>
+                </ul>
+
+                <h3>👉 各种模型傻傻分不清？</h3>
+                <ul>
+                    <li><span class="keyword">Midjourney</span>: 最容易上手，效果最好，就是要花钱💰</li>
+                    <li><span class="keyword">Stable Diffusion</span>: 开源免费，能本地部署，适合又穷又爱折腾的程序员</li>
+                    <li><span class="keyword">Flux</span>: 新一代技术，效果更好，但吃显卡</li>
+                    <li><span class="keyword">LoRA</span>: 不是独立模型，是训练好的"美术风格插件"</li>
+                </ul>
+
+                <h3>👉 氪金还是白嫖？</h3>
+                <ul>
+                    <li><span class="keyword">付费选手</span>: Midjourney, DALL·E, Leonardo, Niji journey, Scenario</li>
+                    <li><span class="keyword">每个平台5分钟上手演示</span>: UI长这样→按这里→输入文字→获得图片→搞定！</li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>氪金路线初级挑战</strong>: 生成一个卡通风格的游戏角色（有手就行）</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>AICG全球社区指南（找到志同道合的穷鬼们）</li>
+                        <li>顶级AI工具收藏夹（持续更新，值得收藏）</li>
+                        <li>每月最新AI工具导航（跟上潮流，防止被辞退）</li>
+                        <li>装X用论文合集（复制粘贴标题就能唬住面试官）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <div class="section-header">
+                <span>🔤</span> 2. 提示词工程：艺术家的语法
+            </div>
+            <div class="section-content">
+                <h3>👉 提示词是个啥？</h3>
+                <ul>
+                    <li>简单说：教AI画画的指令，就像写代码，但不用管语法错误</li>
+                    <li>再简单点说：一门全新的编程语言，输入文字，输出图像</li>
+                </ul>
+
+                <h3>👉 Diffusion提示词基础语法</h3>
+                <ul>
+                    <li>相当于给AI下达指令的DSL，但容错率贼高</li>
+                    <li>基本公式：<code>[物体/角色] + [风格] + [修饰语] + [技术参数]</code></li>
+                    <li>例如：<code>fantasy character, warrior, full body, detailed armor, epic lighting, 8k</code></li>
+                </ul>
+
+                <h3>👉 提示词工程流程图</h3>
+                <ul>
+                    <li>输入→调整→生成→不满意→调整→生成→勉强能用→提交</li>
+                    <li>就像调试代码，但你不知道为什么出错（或为什么成功）</li>
+                </ul>
+
+                <h3>👉 实用小技巧</h3>
+                <ul>
+                    <li>英文比中文效果好（英语不好？DeepL翻译走起）</li>
+                    <li>逗号是你的朋友，分隔不同概念</li>
+                    <li>权重调节：想要更多某个元素，就 <code>(关键词:1.5)</code></li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>氪金路线中级挑战</strong>: 生成一套像样的游戏UI元素</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>提示词速查手册（Ctrl+C, Ctrl+V走起）</li>
+                        <li>提示词工作流程图（贴在显示器旁边）</li>
+                        <li>提示词技巧百科（懒得看就搜关键词）</li>
+                        <li>全球提示词"借鉴"站点清单（不是偷，是学习）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section3">
+            <div class="section-header">
+                <span>🎯</span> 3. 专业级提示词：装B必备
+            </div>
+            <div class="section-content">
+                <h3>👉 提示词高级语法</h3>
+                <ul>
+                    <li><span class="keyword">顺序很重要</span>: 重要的词放前面</li>
+                    <li><span class="keyword">括号与权重</span>: <code>(内容:1.5)</code> 让AI更注重这部分</li>
+                    <li><span class="keyword">反向提示词</span>: 告诉AI "不要做什么"，比如 <code>negative prompt: bad anatomy, ugly, blurry</code></li>
+                </ul>
+
+                <h3>👉 提示词进阶技巧</h3>
+                <ul>
+                    <li><span class="keyword">艺术家风格引用</span>: <code>in the style of [艺术家名]</code>（不用真懂艺术）</li>
+                    <li><span class="keyword">镜头参数</span>: <code>close-up shot, wide angle, 35mm lens</code>（假装是摄影师）</li>
+                    <li><span class="keyword">材质描述</span>: <code>metallic, rough, shiny</code>（多看看淘宝产品描述）</li>
+                </ul>
+
+                <h3>👉 美术速成（假装你懂艺术）</h3>
+                <ul>
+                    <li><span class="keyword">配色方案</span>: 就说<code>complementary colors</code>装懂哥</li>
+                    <li><span class="keyword">光影效果</span>: <code>dramatic lighting, rim light, global illumination</code></li>
+                    <li><span class="keyword">风格流派</span>: <code>cyberpunk, high fantasy, steampunk</code>（选一个就够装了）</li>
+                </ul>
+
+                <h3>👉 游戏美术规格</h3>
+                <ul>
+                    <li><span class="keyword">贴图尺寸</span>: 2的幂次方，1024x1024, 2048x2048</li>
+                    <li><span class="keyword">多边形</span>: 现在谁还管这个，反正AI生成的不用关心</li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>氪金路线高级挑战</strong>: 生成一张能放进作品集的游戏概念图</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>跨学科速成指南（一小时变身全栈艺术家）</li>
+                        <li>全球顶级艺术网站导航（找灵感，不是为了摸鱼）</li>
+                        <li>审美速成操作手册（从直男审美到设计总监）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section4">
+            <div class="section-header">
+                <span>🛠️</span> 4. 环境搭建：程序员的基本素养
+            </div>
+            <div class="section-content">
+                <h3>👉 氪金vs开源</h3>
+                <ul>
+                    <li>氪金：省时间、稳定、客服（有钱就任性）</li>
+                    <li>开源：免费、自由、容易崩溃（程序员日常）</li>
+                </ul>
+
+                <h3>👉 本地环境搭建</h3>
+                <ul>
+                    <li><span class="keyword">硬件需求</span>: N卡显存8G起步，A卡直接劝退</li>
+                    <li><span class="keyword">基础环境</span>: Python、CUDA、显卡驱动（装过机器学习的已经会了）</li>
+                </ul>
+
+                <h3>👉 GitHub速通</h3>
+                <ul>
+                    <li>GitHub不会用？程序员身份证要吊销了</li>
+                    <li>GitHub Desktop：给懒得敲命令的程序员准备的</li>
+                </ul>
+
+                <h3>👉 Stable Diffusion Web UI安装</h3>
+                <ul>
+                    <ol>
+                        <li>克隆仓库 <code>git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</code></li>
+                        <li>运行 <code>webui-user.bat</code> (Windows) 或 <code>webui.sh</code> (Linux/Mac)</li>
+                        <li>卡住了？重启电脑</li>
+                        <li>还不行？看报错（不会吧不会吧）</li>
+                        <li>我是小白看不懂？😯获取小白也能听懂的术语详解👉</li>
+                    </ol>
+                </ul>
+
+                <h3>👉 Hugging Face模型下载</h3>
+                <ul>
+                    <li>懒人包，但下载速度感人</li>
+                    <li>国内用户推荐找镜像或网盘资源</li>
+                </ul>
+
+                <h3>👉 SD Web UI速通</h3>
+                <ul>
+                    <li>UI介绍：左边输入，右边输出，中间一堆看不懂的参数</li>
+                    <li>核心功能：文生图、图生图、局部重绘（其他的用到再学）</li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>开源路线初级挑战</strong>: 用SD生成游戏角色，不崩溃算成功</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>电脑配置指南（花钱攻略）</li>
+                        <li>GitHub懒人包（装作你很懂Git）</li>
+                        <li>开源AI工具合集（~~白嫖~~借鉴）</li>
+                        <li>SD Web UI快速入门（15分钟从入门到放弃）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section5">
+            <div class="section-header">
+                <span>🧩</span> 5. 多种Diffusion模型 + ComfyUI入门
+            </div>
+            <div class="section-content">
+                <h3>👉 Diffusion模型大乱斗</h3>
+                <ul>
+                    <li><span class="keyword">Checkpoint</span>: 基础模型，风格迥异，万能模板</li>
+                    <li><span class="keyword">SDXL</span>: 大型模型，效果好但吃显存，适合土豪</li>
+                    <li><span class="keyword">Flux</span>: 新一代，号称艺术总监级别，怎么画都好看</li>
+                    <li><span class="keyword">LoRA</span>: 风格微调包，给模型打补丁，提示词解放</li>
+                </ul>
+
+                <h3>👉 模型下载配置</h3>
+                <ul>
+                    <li>国内下载指南：各种镜像站+网盘链接+魔法上网+B站搬运工</li>
+                    <li>模型放哪里？<code>models/Stable-diffusion</code>文件夹</li>
+                </ul>
+
+                <h3>👉 ComfyUI初体验</h3>
+                <ul>
+                    <li>装完SD Web UI还不够折腾？试试这个节点式界面</li>
+                    <li>看起来像程序员做的，因为它真的是程序员做的</li>
+                </ul>
+
+                <h3>👉 ComfyUI基础概念</h3>
+                <ul>
+                    <li><span class="keyword">节点</span>: 拖拽连接的功能块（像编程一样搭积木）</li>
+                    <li><span class="keyword">工作流</span>: 保存的节点图（别人写好的"程序"）</li>
+                    <li><span class="keyword">快捷键</span>: 和你用的IDE差不多（但还是要记新的）</li>
+                </ul>
+
+                <h3>👉 ComfyUI核心功能</h3>
+                <ul>
+                    <li><span class="keyword">文生图</span>: 最基本功能，比SD Web UI复杂10倍</li>
+                    <li><span class="keyword">提示词处理</span>: 更精细的控制，分别处理正反提示词</li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>开源路线初级挑战</strong>: 用ComfyUI复现之前的角色生成</p>
+                    <p><strong>工作流挑战</strong>: 导入别人的工作流并理解它（不要怕，就是个有向图）</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>全球模型下载站收藏（不是XX下载站）</li>
+                        <li>ComfyUI懒人包（省得自己研究）</li>
+                        <li>ComfyUI键盘快捷键（贴显示器上）</li>
+                        <li>节点图速查表（拯救你的发际线）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section6">
+            <div class="section-header">
+                <span>🚀</span> 6. ComfyUI高级玩法
+            </div>
+            <div class="section-content">
+                <h3>👉 ComfyUI进阶功能</h3>
+                <ul>
+                    <li><span class="keyword">局部重绘</span>: 只修改图像的一部分（眼睛鼻子嘴歪了专用）</li>
+                    <li><span class="keyword">图像扩展</span>: 把画布变大（要画全身但只生成了上半身）</li>
+                    <li><span class="keyword">高清放大</span>: 让你的512x512变4K（魔法）</li>
+                    <li><span class="keyword">图生图</span>: 用现有图片作为基础生成新图片</li>
+                </ul>
+
+                <h3>👉 特殊控制功能</h3>
+                <ul>
+                    <li><span class="keyword">ControlNet</span>: 用线稿/姿势控制生成（终于能控制手了(‾◡◝)）</li>
+                    <li><span class="keyword">深度图</span>: 控制3D空间感（假的3D建模，可以交给其他AI生成模型）</li>
+                    <li><span class="keyword">人脸交换</span>: 修改表情不变脸（修图神器）</li>
+                </ul>
+
+                <h3>👉 多模型混合魔法</h3>
+                <ul>
+                    <li><span class="keyword">LoRA整合</span>: 混合多种风格（邪恶哥布林+机甲战士？没问题）</li>
+                    <li><span class="keyword">Checkpoint切换</span>: 不同基础模型的优缺点（找到适合你项目的那个）</li>
+                </ul>
+
+                <h3>👉 实用工作流合集</h3>
+                <ul>
+                    <li><span class="keyword">角色生成工作流</span>: 稳定一致的人物（360°无死角的美丽）</li>
+                    <li><span class="keyword">环境生成工作流</span>: 游戏场景一键出（只要配置高！一分钟我能出60张！）</li>
+                </ul>
+
+                <div class="challenge-box">
+                    <div class="challenge-title">💪 实战挑战</div>
+                    <p><strong>开源路线中级挑战</strong>: 用ComfyUI生成一个完整的游戏场景</p>
+                    <p><strong>工作流挑战</strong>: 用别人的工作流生成一个角色</p>
+                </div>
+
+                <div class="bonus-box">
+                    <div class="bonus-title">🎁 白嫖福利</div>
+                    <ul>
+                        <li>ComfyUI节点解析图（全面解析每个节点）</li>
+                        <li>高级工作流收藏夹（直接拿来用）</li>
+                        <li>ComfyUI高级技巧（进阶玩法解锁）</li>
+                        <li>AI艺术创作工具合集（一站式AI艺术工具箱）</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="section7">
+            <div class="section-header">
+                <span>🫵</span>  结语：从"菜鸟"到"大佬"的蜕变
+            </div>
+            <div class="section-content">
+            
+                <ul>
+                    不管你是"手残党"还是"美术小白"，这份指南都能帮你在短时间内掌握AI艺术创作。
+                </ul>
+
+                <h3>记住：你不需要成为艺术家，你只需要会用工具！</h3>
+                <div class="tip-box">
+                    <div class= "tip-title">💡 最后的忠告：</div>
+                    <li>多尝试，做记录，少抱怨</li>
+                    <li>保存好成功的提示词和工作流</li>
+                    <li>加入社区，白嫖学习别人的经验</li>
+                    <li>偶尔给真正的艺术家一些尊重（和项目预算）</li>
+                </div>
+
+                <div class="section-header">
+                    <span>🫵</span>  现在，去创作那些让美术惊掉下巴的游戏资产吧！🚀
+                </div>
+            </div>  
+        </section>
+
+        <div class="toc">
+            <h2>目录</h2>
+            <ul>
+                <li><a href="#top">到顶部⬆️</a></li>
+                <li><a href="#section1">🧙‍♂️ Diffusion模型：不会画画也能当艺术总监</a></li>
+                <li><a href="#section2">🔤 提示词工程：艺术家的语法</a></li>
+                <li><a href="#section3">🎯 专业级提示词：装B必备</a></li>
+                <li><a href="#section4">🛠️ 环境搭建：程序员的基本素养</a></li>
+                <li><a href="#section5">🧩 多种Diffusion模型 + ComfyUI入门</a></li>
+                <li><a href="#section6">🚀 ComfyUI高级玩法</a></li>
+                <li><a href="#section7">🫵 结语：从"菜鸟"到"大佬"的蜕变</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Insert side bar nav copied from roadmap.html -->
+    <div class="nav-outline" id="navOutline">
+        <h4>导航</h4>
+        <ul>
+            <li><a href="#top">到顶部⬆️</a></li>
+            <li><a href="#section1">🧙‍♂️ Diffusion模型</a></li>
+            <li><a href="#section2">🔤 提示词工程</a></li>
+            <li><a href="#section3">🎯 专业级提示词</a></li>
+            <li><a href="#section4">🛠️ 环境搭建</a></li>
+            <li><a href="#section5">🧩 多种Diffusion模型</a></li>
+            <li><a href="#section6">🚀 ComfyUI高级玩法</a></li>
+            <li><a href="#section7">🫵 结语</a></li>
+            <li><a href="#end">到底部⬇️</a></li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>© 2025 AI+Unity游戏开发路线图 | FSG留学 x Design x TA x AI </p>
+    </footer>
+    <!-- Add target anchors for Top and End -->
+
+    <div id="end"></div>
+    <!-- Append JavaScript for sidebar functionality -->
+    <script>
+        (function(){
+            const nav = document.getElementById('navOutline');
+            let timer;
+            function showNav() {
+                nav.classList.add('visible');
+                if(timer) clearTimeout(timer);
+            }
+            document.addEventListener('mousemove', function(e) {
+                if(e.clientX > window.innerWidth - 50) {
+                    showNav();
+                }
+            });
+            nav.addEventListener('mouseenter', function(){
+                if(timer) clearTimeout(timer);
+            });
+            nav.addEventListener('mouseleave', function(){
+                timer = setTimeout(function(){
+                    nav.classList.remove('visible');
+                }, 50);
+            });
+        })();
+    </script>
+    <script>
+      (function(){
+        const navLinks = document.querySelectorAll('.nav-outline a');
+        const sections = Array.from(navLinks).map(link => document.querySelector(link.getAttribute('href')));
+        let currentActive = null;
+        window.addEventListener('scroll', () => {
+          const scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+          sections.forEach((sec, idx) => {
+            if(sec.offsetTop <= scrollPos + 500 && (sec.offsetTop + sec.offsetHeight) > scrollPos + 500) {
+              navLinks.forEach(link => link.classList.remove('active'));
+              navLinks[idx].classList.add('active');
+              if(currentActive !== sec) {
+                currentActive = sec;
+                const header = sec.querySelector('.section-header') || sec.querySelector('h3');
+                if(header) {
+                  header.classList.add('shine');
+                  setTimeout(() => header.classList.remove('shine'), 300);
+                }
+              }
+            }
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function(){
+        const navLinks = document.querySelectorAll('.nav-outline a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function(e){
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const target = document.querySelector(targetId);
+            if(target){
+              const offset = target.getBoundingClientRect().top + window.pageYOffset - 100;
+              window.scrollTo({
+                top: offset,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      })();
+    </script>
+</body>
+</html>
