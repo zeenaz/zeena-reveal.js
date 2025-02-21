@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI辅助Unity 2D游戏设计与开发路线图</title>
+    <style>
+        :root {
+            /* Updated color variables for a tech vibe matching demo.html */
+            --primary-color: #00e676;      /* demo heading green */
+            --accent-color: #66ff99;        /* demo h3 accent */
+            --text-color: #e0e0e0;          /* demo body text color */
+            --background-color: #121212;    /* demo dark background */
+            --card-bg: #1e1e1e;             /* dark card background */
+            --tip-bg: #2c2f33;              /* cool tech tip background */
+            --tip-border: #45ffa5;          /* matching primary highlight */
+            --border-color: #333;           /* section border */
+            --light-text: #aaa;             /* fallback light text */
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 2.2em;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+        }
+
+        .target-audience, .overall-objective {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .target-audience h3, .overall-objective h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .session-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .session-header {
+            background-color: var(--primary-color);
+            color: rgb(0, 0, 0);
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .session-content {
+            padding: 20px;
+        }
+
+        .goals, .core-content, .tools {
+            margin-bottom: 25px;
+        }
+
+        .goals h4, .core-content h4, .tools h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.1em;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .tip {
+            background-color: var(--tip-bg);
+            border-left: 4px solid var(--tip-border);
+            padding: 12px 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .tip-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .summary {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .summary h2 {
+            text-align: center;
+            border-bottom: none;
+        }
+
+        .phase {
+            margin-bottom: 20px;
+        }
+
+        .phase-title {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: var(--light-text);
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 20px 0;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .session-header {
+                padding: 12px 15px;
+            }
+            
+            .session-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI辅助Unity 2D游戏设计与开发路线图</h1>
+            <p>使用AI工具从0到1完成游戏开发的简明指南</p>
+        </header>
+
+        <div class="target-audience">
+            <h3>目标受众</h3>
+            <p>懂Unity但不懂大语言模型的游戏开发者</p>
+        </div>
+
+        <div class="overall-objective">
+            <h3>总体目标</h3>
+            <p>用AI工具（LLM、GitHub Copilot、Cursor等）从0到1完成游戏，包括概念设计、编码、测试到最终发布，全程有AI助力。</p>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第0课：大语言模型速成</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>了解LLM是啥以及基本术语</li>
+                        <li>学会高效和AI对话</li>
+                        <li>上手常用AI工具</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li><strong>LLM基础:</strong>
+                            <ul>
+                                <li>大语言模型是啥？为啥这么牛？</li>
+                                <li>关键词解释：Transformer、GPT、LLM（听起来高大上其实很简单）</li>
+                            </ul>
+                        </li>
+                        <li><strong>和AI聊天技巧:</strong>
+                            <ul>
+                                <li>提示词设计：怎么问才能得到想要的答案</li>
+                                <li>AI也会犯错（幻觉问题）及应对方法</li>
+                            </ul>
+                        </li>
+                        <li><strong>实操环节:</strong>
+                            <ul>
+                                <li>用LLM快速生成游戏设计文档</li>
+                                <li>GitHub Copilot帮你写C#代码</li>
+                                <li>Cursor工具上手教程</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>提示词速查表（收藏就对了）</li>
+                        <li>常用对话模板（复制粘贴省时间）</li>
+                        <li>术语简明指南（装逼必备）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第1课：游戏概念速成</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>了解CIGDI框架和游戏开发流程</li>
+                        <li>学习不同原型类型</li>
+                        <li>用AI生成游戏点子</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>游戏开发全流程和CIGDI框架快速上手</li>
+                        <li>热门AI工具介绍（LLM、Midjourney、Copilot、Cursor）</li>
+                        <li>三类游戏原型：纸面原型、数字原型、AI生成原型</li>
+                        <li>高效游戏调研方法</li>
+                        <li>用LLM五分钟内生成2D游戏创意</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>原型设计检查清单（再也不怕遗漏）</li>
+                        <li>游戏研究笔记模板（一看就懂）</li>
+                        <li>超强研究论文精选（选择性阅读）</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>这步生成的游戏概念会成为后面所有工作的基础，多花10分钟在这步上能省后面几小时。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第2课：从想法到文档</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>把脑中想法变成具体设计</li>
+                        <li>搭建游戏设计文档框架</li>
+                        <li>设置项目管理工具</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>详解游戏核心要素：玩法机制、目标、主题和风格（不再纸上谈兵）</li>
+                        <li>用Miro快速做GDD可视化大纲</li>
+                        <li>提示词设计秘诀及AI头脑风暴技巧</li>
+                        <li>让LLM替你写大部分GDD初稿</li>
+                        <li>任务拆解和进度规划（控制项目不失控）</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>通用游戏设计框架（套用就能用）</li>
+                        <li>LLM文档生成秘籍</li>
+                        <li>开发前准备清单（一个都不能少）</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>有了设计文档，你就有了开发的路线图，接下来就是实操环节了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第3课：开发环境配置与基础实现</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>配置Unity和AI工具环境</li>
+                        <li>让AI帮你生成基础代码</li>
+                        <li>搭建可运行的简单框架</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>Unity编辑器快速配置技巧</li>
+                        <li>Cursor安装与配置教程（一步到位）</li>
+                        <li>用GitHub Copilot生成基础玩家控制代码</li>
+                        <li>快速搭建测试关卡用于验证</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>Cursor提示词宝典</li>
+                        <li>GitHub Copilot使用技巧（让AI写出更好的代码）</li>
+                        <li>Unity配置一键搞定指南</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>环境配好了，下一步我们就要动手做出能玩的东西了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第4课：快速制作原型</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>用临时素材搭建测试关卡</li>
+                        <li>实现基础角色控制</li>
+                        <li>用AI生成美术资源</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>临时素材使用指南（哪里找、怎么用）</li>
+                        <li>Unity中15分钟内搭建可玩关卡</li>
+                        <li>用Cursor快速实现玩家控制逻辑</li>
+                        <li>用AI工具（Midjourney/Stable Diffusion）生成游戏素材</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>免费临时素材资源库</li>
+                        <li>AI绘图提示词秘籍</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>有了可玩的原型，接下来就是把它变得更好玩。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第5课：核心玩法打磨</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>添加互动元素丰富游戏体验</li>
+                        <li>更新设计文档</li>
+                        <li>用LLM辅助开发和调试</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>快速实现收集品、障碍物和敌人AI</li>
+                        <li>用LLM生成核心游戏代码（省时又省力）</li>
+                        <li>更新GDD记录新功能</li>
+                        <li>调试技巧与常见问题解决方案</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>调试问题速查表</li>
+                        <li>代码优化AI提示词集</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>核心玩法做好了，下一步就是让游戏看起来更专业。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第6课：UI、音效与游戏体验提升</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>添加UI界面和音效</li>
+                        <li>增加额外功能提升游戏体验</li>
+                        <li>用AI进行细节打磨</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>快速实现游戏UI（得分、血条、菜单）</li>
+                        <li>添加音效和背景音乐</li>
+                        <li>用AI辅助设计和调试细节功能</li>
+                        <li>持续更新文档（方便后期维护）</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>UI设计与音频集成技巧</li>
+                        <li>AI辅助优化工具清单</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>基本功能都有了，是时候测试一下游戏体验了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第7课：测试与质量保证</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>找出并修复明显Bug</li>
+                        <li>学习基础测试方法</li>
+                        <li>用LLM生成测试场景</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>快速测试方法（不用花几天时间）</li>
+                        <li>用LLM生成全面测试场景</li>
+                        <li>Bug记录与修复流程（用Jira或其他工具）</li>
+                        <li>基于反馈快速调整游戏平衡性</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>快速QA流程与测试用例模板</li>
+                        <li>AI测试报告生成指南</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>找出Bug后，接下来就是优化和打磨了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第8课：游戏优化与性能提升</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>提升游戏视觉效果和流畅度</li>
+                        <li>优化游戏性能</li>
+                        <li>用AI改进美术和音效</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>用AI生成的高质量资源替换临时素材</li>
+                        <li>优化玩家控制手感和敌人AI</li>
+                        <li>用Unity分析工具找出并解决性能问题</li>
+                        <li>根据测试反馈进行最后调整</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>性能优化秘籍</li>
+                        <li>AI美术生成高级技巧</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>游戏体验优化后，下一步是完善文档和版本控制。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第9课：文档完善与版本管理</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>完善项目文档</li>
+                        <li>学习Git版本控制</li>
+                        <li>用LLM生成更新日志</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>更新GDD记录最终版本的内容</li>
+                        <li>Git分支管理和协作技巧（团队协作必备）</li>
+                        <li>用LLM生成专业的更新日志</li>
+                        <li>远程协作与问题解决策略</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>Git命令速查表</li>
+                        <li>更新日志模板</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>文档和版本控制完成后，就可以准备最终测试和发布了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第10课：最终测试与平衡调整</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>全面测试游戏稳定性和平衡性</li>
+                        <li>最后优化UI和视觉效果</li>
+                        <li>完善游戏文案</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>全面测试流程（确保万无一失）</li>
+                        <li>最后的游戏平衡调整</li>
+                        <li>用LLM优化游戏内文案和宣传文案</li>
+                        <li>编写最终QA报告（为发布做准备）</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>最终测试清单</li>
+                        <li>AI文案优化提示词</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>测试无误后，就可以准备发布了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第11课：打包与发布准备</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>打包发布版本</li>
+                        <li>准备项目演示</li>
+                        <li>制作宣传材料</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>Unity打包设置教程（PC或WebGL版本）</li>
+                        <li>最终文档检查与更新</li>
+                        <li>创建项目演示文稿</li>
+                        <li>用LLM生成发布说明和宣传文案</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>打包流程图解</li>
+                        <li>宣传文案模板</li>
+                    </ul>
+                </div>
+
+                <div class="tip">
+                    <div class="tip-title">温馨提示</div>
+                    <p>一切就绪后，就是最后的展示和总结了。</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="session-card">
+            <div class="session-header">第12课：成果展示与经验总结</div>
+            <div class="session-content">
+                <div class="goals">
+                    <h4>目标</h4>
+                    <ul>
+                        <li>展示完整游戏</li>
+                        <li>总结开发经验</li>
+                        <li>规划未来发展</li>
+                    </ul>
+                </div>
+
+                <div class="core-content">
+                    <h4>内容</h4>
+                    <ul>
+                        <li>游戏演示技巧</li>
+                        <li>用LLM帮你写项目总结报告</li>
+                        <li>收集反馈并讨论改进方向</li>
+                        <li>制定下一步学习和开发计划</li>
+                    </ul>
+                </div>
+
+                <div class="tools">
+                    <h4>实用工具</h4>
+                    <ul>
+                        <li>项目总结模板</li>
+                        <li>未来规划工具包</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary">
+            <h2>总结</h2>
+            <p>这套教程分三大块：</p>
+            
+            <div class="phase">
+                <div class="phase-title">入门阶段（第0-2课）:</div>
+                <p>了解基本概念、用AI生成创意和文档。</p>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-title">开发阶段（第3-6课）:</div>
+                <p>环境配置、原型开发、核心功能实现、UI和音效添加。</p>
+            </div>
+            
+            <div class="phase">
+                <div class="phase-title">完善阶段（第7-12课）:</div>
+                <p>测试、优化、打包和发布。</p>
+            </div>
+            
+            <p>每课都配有实用工具和模板，就算你很懒也能快速上手。整套流程只需2-3个月，让你用AI工具事半功倍地完成游戏开发。</p>
+            
+            <p>这份文档专为忙碌的开发者设计，语言简洁明了，步骤清晰可行，配合AI工具让你的游戏开发效率翻倍！</p>
+        </div>
+
+        <footer>
+            <p>© 2025 AI辅助Unity游戏开发路线图 | 使用AI工具提升游戏开发效率</p>
+        </footer>
+    </div>
+</body>
+</html>

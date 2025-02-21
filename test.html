@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI辅助Unity 2D游戏开发路线图</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --background: #f8fafc;
+            --text: #1e293b;
+            --card-bg: #ffffff;
+            --accent: #3b82f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--background);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .target-audience {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .course-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .tools-list {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .tools-list h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        .tip {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f0f9ff;
+            border-left: 4px solid var(--accent);
+            border-radius: 4px;
+        }
+
+        .summary {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 2rem 0;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .course-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>AI辅助Unity 2D游戏开发路线图</h1>
+            <p>用AI工具从0到1完成游戏开发</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="target-audience">
+            <h2>目标受众</h2>
+            <p>懂Unity但不懂大语言模型的游戏开发者</p>
+            <h2>总体目标</h2>
+            <p>用AI工具（LLM、GitHub Copilot、Cursor等）从0到1完成游戏，包括概念设计、编码、测试到最终发布，全程有AI助力。</p>
+        </div>
+
+        <div class="course-grid">
+            <!-- 第0课 -->
+            <div class="course-card">
+                <h3>第0课：大语言模型速成</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>了解LLM是啥以及基本术语</li>
+                        <li>学会高效和AI对话</li>
+                        <li>上手常用AI工具</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>提示词速查表</li>
+                        <li>常用对话模板</li>
+                        <li>术语简明指南</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 继续添加其他课程卡片，格式相同 -->
+            <div class="course-card">
+                <h3>第1课：游戏概念设计</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏概念</li>
+                        <li>学会用AI生成游戏文档</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏概念生成器</li>
+                        <li>AI游戏文档生成器</li>
+                    </ul>
+                </div>  
+            </div>
+
+            <div class="course-card">
+                <h3>第2课：游戏原型设计</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏原型</li>
+                    </ul>
+                </div>  
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏原型生成器</li>
+                    </ul>
+                </div>  
+            </div>
+
+            <div class="course-card">
+                <h3>第3课：游戏环境配置</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏环境</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏环境生成器</li>
+                    </ul>
+                </div>
+                </div>
+
+            <div class="course-card">
+                <h3>第4课：游戏核心功能实现</h3>
+                <div class="objectives">
+                        <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏核心功能</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏核心功能生成器</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <h3>第5课：游戏UI设计</h3>  
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏UI</li>
+                    </ul>
+                </div>
+                <div class="tools-list">    
+                    <h4>实用工具:</h4>      
+                    <ul>
+                        <li>AI游戏UI生成器</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <h3>第6课：游戏音效设计</h3>    
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏音效</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏音效生成器</li>
+                    </ul>
+                </div>
+            </div>  
+
+            <div class="course-card">
+                <h3>第7课：游戏测试</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI生成游戏测试</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏测试生成器</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <h3>第8课：游戏优化</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI优化游戏</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏优化生成器</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <h3>第9课：游戏发布</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    
+                </div>
+                <div class="tools-list">    
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏发布生成器</li>
+                    </ul>
+                </div>  
+            </div>
+
+            <div class="course-card">
+                <h3>第10课：游戏发布</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI发布游戏</li>
+                    </ul>
+                </div>
+                    <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏发布生成器</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <h3>第11课：游戏发布</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI发布游戏</li>
+                    </ul>
+                </div>
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏发布生成器</li>
+                    </ul>   
+                </div>
+            </div>
+
+            <div class="course-card">
+                <h3>第12课：游戏发布</h3>
+                <div class="objectives">
+                    <h4>目标:</h4>
+                    <ul>
+                        <li>学会用AI发布游戏</li>
+                    </ul>
+                </div>  
+                <div class="tools-list">
+                    <h4>实用工具:</h4>
+                    <ul>
+                        <li>AI游戏发布生成器</li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
+
+
+        <div class="summary">
+            <h2>课程总结</h2>
+            <p>这套教程分三大块：</p>
+            <ul>
+                <li><strong>入门阶段（第0-2课）:</strong> 了解基本概念、用AI生成创意和文档</li>
+                <li><strong>开发阶段（第3-6课）:</strong> 环境配置、原型开发、核心功能实现、UI和音效添加</li>
+                <li><strong>完善阶段（第7-12课）:</strong> 测试、优化、打包和发布</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>© 2024 AI辅助Unity游戏开发. All rights reserved.</p>
+    </footer>
+</body>
+</html>
