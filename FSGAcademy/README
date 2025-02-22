@@ -1,0 +1,15 @@
+FSGAcademy/
+├── index.html           # Home page
+├── courses.html         # Courses & Services page
+├── faculty.html         # Faculty page
+├── portfolio.html       # Portfolio Showcase page
+├── offers.html          # Offers Showcase page
+├── faq.html             # FAQ page
+├── assets/
+│   ├── css/
+│   │   └── styles.css   # Custom CSS (optional, Tailwind minimizes its need)
+│   ├── images/          # Store images here (e.g., student works, logos)
+│   │   ├── logo.png     # Placeholder logo
+│   │   └── placeholder.jpg  # Placeholder for student work
+│   └── js/
+│       └── script.js    # Optional JS for interactivity

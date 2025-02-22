@@ -1,0 +1,5 @@
+xelatex test_packages
+bibtex test_packages
+xelatex test_packages
+xelatex test_packages
+pause 
