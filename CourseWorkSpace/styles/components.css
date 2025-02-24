@@ -37,3 +37,54 @@
     50% { background-color: var(--primary-light); }
     100% { background-color: transparent; }
 } 
+
+/* Specific styles for the diffusion steps page */
+.explain-doc {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+}
+
+/* Specific styles for the Stable Diffusion Explained page */
+.step-box {
+    padding: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    width: 250px;
+    margin: 0 auto;
+    text-align: center;
+    /*image*/
+    img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: center;
+    }
+    /*text*/
+    p {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    h3 {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
