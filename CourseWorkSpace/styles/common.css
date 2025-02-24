@@ -1,0 +1,40 @@
+:root {
+    /* Light theme variables */
+    --primary-color: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-light: #a5b4fc;
+    --accent-color: #f97316;
+    --text-color: #334155;
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --border-color: #e2e8f0;
+    --heading-color: #1e293b;
+}
+
+/* Base typography */
+body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+/* Common layouts */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Common text styles */
+h1, h2, h3, h4 {
+    color: var(--heading-color);
+    margin-top: 0;
+}
+
+/* Common utilities */
+.text-center {
+    text-align: center;
+} 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>图像去噪演示 - Stable Diffusion步骤解析</title>[1](@ref)
+    <!-- 引入Bootstrap简化布局 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .step-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            transition: transform 0.2s;
+            margin: 20px 0;
+        }
+        .step-card:hover {
+            transform: translateY(-5px);
+        }
+        .step-img {
+            border-radius: 15px 15px 0 0;
+            background: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Stable Diffusion步骤解析</h1>[1](@ref)
+        
+        <!-- 步骤1：初始噪声 -->
+        <div class="row step-card">
+            <div class="col-md-6 step-img">
+                <img src="https://placehold.co/600x400?text=初始噪声图像\n（随机噪声）" [1](@ref)
+                     alt="初始噪声阶段示意" 
+                     class="img-fluid">
+            </div>
+            <div class="col-md-6 p-4">
+                <h2>步骤1 - 初始噪声</h2>[1](@ref)
+                <p class="lead text-muted">随机生成的噪音图像（类似电视雪花屏效果）</p>[1](@ref)
+                <div class="text-bg-secondary p-3 rounded">文档引用：[3]</div>
+            </div>
+        </div>
+
+        <!-- 步骤2：噪声去除 -->
+        <div class="row step-card">
+            <div class="col-md-6 order-md-2 step-img">
+                <img src="https://placehold.co/600x400?text=噪声去除阶段\n（算法预测噪声区域）" [1](@ref)
+                     alt="去噪阶段示意"
+                     class="img-fluid">
+            </div>
+            <div class="col-md-6 p-4 order-md-1">
+                <h2>步骤2 - 噪声去除</h2>
+                <p class="lead text-muted">AI逐步骤预测和去除图像噪声</p>[1](@ref)
+                <div class="text-bg-secondary p-3 rounded">文档引用：[3-1]</div>
+            </div>
+        </div>
+
+        <!-- 步骤n：渐进优化 -->
+        <div class="text-center my-5">
+            <img src="https://placehold.co/800x100?text=经过[步骤数]次迭代后..." 
+                 alt="渐进优化过程"
+                 class="img-fluid rounded">
+        </div>
+
+        <!-- 最终结果 -->
+        <div class="text-center mt-5">
+            <img src="https://placehold.co/600x400?text=最终生成图像\n（清晰成品）" 
+                 alt="最终图像" 
+                 class="img-thumbnail">
+            <h4 class="mt-3">文档说明</h4>
+            <blockquote class="blockquote">"每次迭代后图像细节逐步清晰[1-1][4]"</blockquote>[1](@ref)
+        </div>
+
+        <!-- 脚注 -->
+        <footer class="mt-5 text-center text-muted small">
+            <div class="alert alert-warning">注意：本演示使用占位图像，具体实施时需替换为实际生成过程图示</div>
+            <p>技术文档版本：2023年7月稳定扩散说明文档</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
