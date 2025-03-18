@@ -5,9 +5,7 @@ node_modules/reveal.js/*
 !node_modules/reveal.js/dist/
 node_modules/reveal.js/dist/*
 !node_modules/reveal.js/dist/theme/
-node_modules/reveal.js/dist/theme/*
-!node_modules/reveal.js/dist/theme/tech.css
-!node_modules/reveal.js/dist/theme/vrtl.css
+!node_modules/reveal.js/dist/theme/*
 
 # Build output
 dist/
