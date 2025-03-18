@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>AI Game Development Course</title>
+
+		<link rel="stylesheet" href="../node_modules/reveal.js/dist/reset.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/dist/reveal.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/dist/theme/black.css">
+		<link rel="stylesheet" href="../node_modules/reveal.js/plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Your markdown content will be loaded here -->
+				<section 
+					data-markdown="slides/content.md"
+					data-separator="^---$"           
+					data-separator-vertical="^--$"   
+					data-separator-notes="^Note:"    
+					data-charset="utf-8"
+					data-auto-animate>
+					<script type="text/template">
+						# Loading...
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<!-- Load reveal.js first -->
+		<script src="../node_modules/reveal.js/dist/reveal.js"></script>
+		<!-- Then load plugins -->
+		<script src="../node_modules/reveal.js/plugin/markdown/markdown.js"></script>
+		<script src="../node_modules/reveal.js/plugin/highlight/highlight.js"></script>
+		<script src="../node_modules/reveal.js/plugin/notes/notes.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ],
+				// Enhanced configuration
+				controls: true,
+				progress: true,
+				center: true,
+				transition: 'slide',
+				// Auto-animation configuration
+				autoAnimate: true,
+				autoAnimateEasing: 'ease-out',
+				autoAnimateDuration: 0.8,
+				autoAnimateUnmatched: false,
+				// Markdown configuration
+				markdown: {
+					smartypants: true,
+					highlight: true,
+					gfm: true
+				},
+				// Page split configuration
+				width: 1200,
+				height: 800,
+				margin: 0.1,
+				minScale: 0.2,
+				maxScale: 2.0
+			});
+		</script>
+	</body>
+</html> 
