@@ -47,3 +47,15 @@ yarn-error.log*
 # Uncomment if you want to ignore reveal.js custom themes or plugins
 # css/theme/custom/
 # plugin/custom/
+
+.idea/
+*.iml
+*.iws
+*.eml
+out/
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+.sass-cache
