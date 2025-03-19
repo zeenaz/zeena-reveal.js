@@ -1,11 +1,3 @@
-# Dependencies - Be selective about node_modules
-node_modules/*
-!node_modules/reveal.js/
-node_modules/reveal.js/*
-!node_modules/reveal.js/dist/
-node_modules/reveal.js/dist/*
-!node_modules/reveal.js/dist/theme/
-!node_modules/reveal.js/dist/theme/*.css
 
 # Build output
 dist/
